@@ -1,0 +1,20 @@
+NOTE : 
+------------------------------
+1) Reserfasi online - pemesanan meja online. (API)
+2) menggunakan prinsip DDD (Domain-driven Design)
+3) Penerapan Unit Testing.
+
+IMPLEMENTASI : 
+- migration model laravel
+- pengguna bisa login & bisa pesan nomor meja meski tanpa reservasi.
+- penerapan routing
+
+Penanganan Carsh / dumping karena balapan : 
+- menghindari pemesanan meja yang sama secara serentak.
+
+Pengujian : 
+- Penerapan uji Test Fungsi system reserfasi.
+
+- Pengujian secara detail 
+  termasuk kondisi balapan dan kasus kasus kecil.
+
