@@ -21,7 +21,7 @@ Mission not yet created :
 For Use this program :
 
 -   you must register and login for get "Bearer Token"
--   1. you must insert data master Table exit ( tb_table_exis )
+-   1. you must insert master data "tb Table_exists".
 -   2. and then ready to order Reservations.
 -   3. and exit order, you must run destroyOrder, this program can be updated in status master table exis
        deleted data in reservations and update report reservation on 'report_reservation'.
