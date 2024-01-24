@@ -58,6 +58,6 @@ class User extends Authenticatable
 use HasFactory, Notifiable, HasApiTokens;
 }"
 
-## jalankan migrate
+## migrate
 
 php artisan migrate
