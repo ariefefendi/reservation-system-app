@@ -1,25 +1,27 @@
-# Laravel 8 RESTful API with Domain-Driven Design (DDD)
+# Laravel RESTful API with Modular Architecture (DDD Principles)
 
-A RESTful API project built with **Laravel 8** following the **Domain-Driven Design (DDD)** architectural approach. The project uses **Laravel Sanctum** for API authentication and demonstrates a clean separation between business domains, application logic, and infrastructure.
+A RESTful API project built with **Laravel 8** using a **Modular Architecture** inspired by **Domain-Driven Design (DDD) principles**. The project leverages **Laravel Sanctum** for secure API authentication and organizes business logic into feature-oriented modules, improving maintainability, readability, and scalability.
 
 ---
 
-## Features
+# Features
 
 * RESTful API
-* Domain-Driven Design (DDD)
+* Modular Feature-Based Architecture
+* DDD-Inspired Design
 * Laravel Sanctum Authentication
-* CRUD API
 * Reservation Management
 * Table Management
-* API Token Authentication
-* JSON Response
+* CRUD Operations
+* Business Logic Separation
+* Validation Layer
+* Exception Handling
+* JSON API Response
 * MySQL Database
-* Clean Project Structure
 
 ---
 
-## Technology Stack
+# Technology Stack
 
 | Layer              | Technology         |
 | ------------------ | ------------------ |
@@ -33,105 +35,147 @@ A RESTful API project built with **Laravel 8** following the **Domain-Driven Des
 
 ---
 
-## Composer Dependencies
+# Main Dependencies
 
 * Laravel Framework 8.54
 * Laravel Sanctum
-* Guzzle HTTP
+* Guzzle HTTP Client
 * Carbon
 * Laravel Tinker
 
 ---
 
-## Architecture
+# Architecture
 
-This project follows the **Domain-Driven Design (DDD)** approach to improve maintainability and scalability by separating business logic into domain-oriented modules.
+This project adopts a **Modular Architecture** while applying several **DDD (Domain-Driven Design) principles**. Instead of implementing a full DDD structure, business logic is organized into independent feature modules, making the application easier to maintain and extend.
 
 ```text
-Client
-   │
-   ▼
-REST API
-   │
-   ▼
-Application Layer
-   │
-   ▼
-Domain Layer
-   │
-   ▼
-Infrastructure Layer
-   │
-   ▼
-MySQL Database
+                Client
+                   │
+                   ▼
+          Laravel REST API
+                   │
+                   ▼
+        Authentication Module
+        Reservation Module
+        Table Number Module
+        Report Reservation Module
+                   │
+                   ▼
+      Validation • Business Logic
+      Exception Handling • Queries
+                   │
+                   ▼
+             MySQL Database
+```
+
+Each module encapsulates its own responsibilities, including:
+
+* Business Logic
+* Validation
+* Exception Handling
+* Query Processing
+* HTTP Controller
+
+This approach reduces code coupling while keeping each business feature self-contained.
+
+---
+
+# Project Structure
+
+```text
+app/
+│
+├── Http/
+│   ├── Controllers/
+│   │
+│   ├── Authentication/
+│   ├── Reservations/
+│   ├── TableNumber/
+│   └── ReportReservations/
+│       ├── src/
+│       │   ├── businessQuery/
+│       │   ├── exceptions/
+│       │   ├── setability/
+│       │   └── validations/
+│       │
+│       └── ReportReservationsController.php
+│
+├── Models/
+├── Middleware/
+└── ...
+```
+
+The application is organized by **feature modules** rather than placing all business logic into a single controller layer.
+
+---
+
+# Authentication
+
+Authentication is implemented using **Laravel Sanctum**.
+
+Protected endpoints require a valid **Bearer Token**.
+
+Authentication flow:
+
+1. Register a new account.
+2. Login.
+3. Receive a Bearer Token.
+4. Access protected REST API endpoints.
+
+---
+
+# API Documentation
+
+Complete API documentation is available through **Postman Documenter**.
+
+```
+https://documenter.getpostman.com/view/3765556/2s9YynkirH
 ```
 
 ---
 
-## Authentication
+# ⚙️ Installation
 
-Authentication is implemented using **Laravel Sanctum**.
-
-Every protected endpoint requires a valid **Bearer Token**.
-
-Workflow:
-
-1. Register a new user.
-2. Login.
-3. Receive a Bearer Token.
-4. Access protected API endpoints.
-
----
-
-## API Documentation
-
-Complete API documentation is available via Postman Documenter.
-
-> https://documenter.getpostman.com/view/3765556/2s9YynkirH
-
----
-
-## Installation
-
-### Clone Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/yourusername/your-repository.git
 ```
 
-### Install Composer Dependencies
+## Install Dependencies
 
 ```bash
 composer install
 ```
 
-### Configure Environment
+## Configure Environment
 
 ```bash
 cp .env.example .env
 ```
 
-Configure your database credentials inside `.env`.
+Update your database configuration inside the `.env` file.
 
-### Generate Application Key
+## Generate Application Key
 
 ```bash
 php artisan key:generate
 ```
 
-### Run Database Migration
+## Run Migration
 
 ```bash
 php artisan migrate
 ```
 
-### Install Laravel Sanctum
+## Install Laravel Sanctum
 
 ```bash
 composer require laravel/sanctum
 ```
 
-Publish Sanctum assets.
+Publish Sanctum configuration.
 
 ```bash
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
@@ -143,13 +187,13 @@ Run migration again if necessary.
 php artisan migrate
 ```
 
-### Start Development Server
+## Start Development Server
 
 ```bash
 php artisan serve
 ```
 
-Default URL
+Application URL
 
 ```
 http://127.0.0.1:8000
@@ -157,49 +201,53 @@ http://127.0.0.1:8000
 
 ---
 
-## Reservation Workflow
+# Business Workflow
 
-The application follows the following business process:
+The reservation process follows these steps:
 
-1. Register an account.
-2. Login to obtain a Bearer Token.
+1. Register a user account.
+2. Authenticate and obtain a Bearer Token.
 3. Create master table data.
 4. Create reservation records.
-5. Complete the reservation process.
-6. Close the reservation.
-7. Update reservation reports automatically.
+5. Process reservation transactions.
+6. Complete or close reservations.
+7. Automatically update reservation reports.
 
 ---
 
-## Project Status
+# Current Implementation
 
-Current implementation includes:
+The project currently includes:
 
-* RESTful API
-* Domain-Driven Design (DDD)
+* Laravel 8 RESTful API
+* Modular Architecture
+* DDD Principles
 * Laravel Sanctum Authentication
 * Reservation Module
 * Table Management
+* Validation Layer
+* Exception Handling
+* Business Query Layer
 * CRUD Operations
 
 ---
 
-## Future Improvements
+# Future Improvements
 
-The following features are planned for future development:
+Planned enhancements include:
 
 * Unit Testing
 * Feature Testing
 * Database Seeders
+* Repository Pattern
+* Service Layer
 * API Versioning
-* Request Validation
-* Exception Handling
-* Docker Support
 * Swagger / OpenAPI Documentation
+* Docker Support
 * CI/CD Pipeline
 
 ---
 
-## License
+# License
 
-This project is intended for educational purposes and serves as a reference implementation of **RESTful API development using Laravel 8 and Domain-Driven Design (DDD)**.
+This project is intended for educational purposes and serves as a reference implementation of a **Laravel RESTful API** using a **Modular Architecture inspired by Domain-Driven Design (DDD) principles**.
