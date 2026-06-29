@@ -129,9 +129,8 @@ Authentication flow:
 
 Complete API documentation is available through **Postman Documenter**.
 
-```
 https://documenter.getpostman.com/view/3765556/2s9YynkirH
-```
+
 
 ---
 
