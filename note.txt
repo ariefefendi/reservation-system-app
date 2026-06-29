@@ -17,12 +17,3 @@ Pengujian :
 
 - Pengujian secara detail 
   termasuk kondisi balapan dan kasus kasus kecil.
-
-
-Jumlah Desa 342.
-Arcgis Pro from esri
-Harga + Tax / PPN  	=> 1.280.000/@	= 437.760K
-Layana / Pengerjaan  	=>   520.000/@	= 177.840K
-
-Total 	   =>        177.840K
-Pak Sandy  => 100/@ ( 34.200K)
