@@ -134,7 +134,7 @@ https://documenter.getpostman.com/view/3765556/2s9YynkirH
 
 ---
 
-# ⚙️ Installation
+# Installation
 
 ## Clone Repository
 
