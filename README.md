@@ -1,63 +1,205 @@
-## Implementation DDD (Domain-driven Design) on Backend RestFull Api - Laravel 8
+# Laravel 8 RESTful API with Domain-Driven Design (DDD)
 
-Name : Arif Efendi
-email : arifefendi304@gmail.com
-Wa : 6283845478148
+A RESTful API project built with **Laravel 8** following the **Domain-Driven Design (DDD)** architectural approach. The project uses **Laravel Sanctum** for API authentication and demonstrates a clean separation between business domains, application logic, and infrastructure.
 
-## Documentation :
+---
 
-https://documenter.getpostman.com/view/3765556/2s9YynkirH
+## Features
 
-NOTE :
-Im so sorry, :
+* RESTful API
+* Domain-Driven Design (DDD)
+* Laravel Sanctum Authentication
+* CRUD API
+* Reservation Management
+* Table Management
+* API Token Authentication
+* JSON Response
+* MySQL Database
+* Clean Project Structure
 
--   just here for task finished.
+---
 
-Mission not yet created :
+## Technology Stack
 
--   unit testing.
--   Seeder data migration.
+| Layer              | Technology         |
+| ------------------ | ------------------ |
+| Framework          | Laravel 8          |
+| Language           | PHP 7.3+ / PHP 8.x |
+| Authentication     | Laravel Sanctum    |
+| Database           | MySQL              |
+| API                | RESTful API        |
+| Dependency Manager | Composer           |
+| Frontend Build     | Laravel Mix        |
 
-For Use this program :
+---
 
--   you must register and login for get "Bearer Token"
--   1. you must insert master data "tb Table_exists".
--   2. and then ready to order Reservations.
--   3. and exit order, you must run destroyOrder, this program can be updated in status master table exis
-       deleted data in reservations and update report reservation on 'report_reservation'.
+## Composer Dependencies
 
-Running :
-Run php artisan
+* Laravel Framework 8.54
+* Laravel Sanctum
+* Guzzle HTTP
+* Carbon
+* Laravel Tinker
 
-## install laravel v8
+---
 
-composer create-project laravel/laravel example-app "8.5.\*"
+## Architecture
 
-## install sanctum
+This project follows the **Domain-Driven Design (DDD)** approach to improve maintainability and scalability by separating business logic into domain-oriented modules.
 
-composer require laravel/sanctum
+```text
+Client
+   │
+   ▼
+REST API
+   │
+   ▼
+Application Layer
+   │
+   ▼
+Domain Layer
+   │
+   ▼
+Infrastructure Layer
+   │
+   ▼
+MySQL Database
+```
 
-## publish sanctum
+---
 
-php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+## Authentication
 
-## Setup Karnel
+Authentication is implemented using **Laravel Sanctum**.
 
-'api' => [
-\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-'throttle:api',
-\Illuminate\Routing\Middleware\SubstituteBindings::class,
-],
+Every protected endpoint requires a valid **Bearer Token**.
 
-## Configurasi sanctum
+Workflow:
 
-"<?php
-use Laravel\Sanctum\HasApiTokens;
-class User extends Authenticatable
-{
-use HasFactory, Notifiable, HasApiTokens;
-}"
+1. Register a new user.
+2. Login.
+3. Receive a Bearer Token.
+4. Access protected API endpoints.
 
-## migrate
+---
 
+## API Documentation
+
+Complete API documentation is available via Postman Documenter.
+
+> https://documenter.getpostman.com/view/3765556/2s9YynkirH
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/yourusername/your-repository.git
+```
+
+### Install Composer Dependencies
+
+```bash
+composer install
+```
+
+### Configure Environment
+
+```bash
+cp .env.example .env
+```
+
+Configure your database credentials inside `.env`.
+
+### Generate Application Key
+
+```bash
+php artisan key:generate
+```
+
+### Run Database Migration
+
+```bash
 php artisan migrate
+```
+
+### Install Laravel Sanctum
+
+```bash
+composer require laravel/sanctum
+```
+
+Publish Sanctum assets.
+
+```bash
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+```
+
+Run migration again if necessary.
+
+```bash
+php artisan migrate
+```
+
+### Start Development Server
+
+```bash
+php artisan serve
+```
+
+Default URL
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## Reservation Workflow
+
+The application follows the following business process:
+
+1. Register an account.
+2. Login to obtain a Bearer Token.
+3. Create master table data.
+4. Create reservation records.
+5. Complete the reservation process.
+6. Close the reservation.
+7. Update reservation reports automatically.
+
+---
+
+## Project Status
+
+Current implementation includes:
+
+* RESTful API
+* Domain-Driven Design (DDD)
+* Laravel Sanctum Authentication
+* Reservation Module
+* Table Management
+* CRUD Operations
+
+---
+
+## Future Improvements
+
+The following features are planned for future development:
+
+* Unit Testing
+* Feature Testing
+* Database Seeders
+* API Versioning
+* Request Validation
+* Exception Handling
+* Docker Support
+* Swagger / OpenAPI Documentation
+* CI/CD Pipeline
+
+---
+
+## License
+
+This project is intended for educational purposes and serves as a reference implementation of **RESTful API development using Laravel 8 and Domain-Driven Design (DDD)**.
